@@ -1,5 +1,13 @@
 # spotify-ranking
 
+## setup
+
+バージョン確認。
+
+```shell
+npm bun --version
+```
+
 ## Technical Memo
 
 ### トークン（Token）について
