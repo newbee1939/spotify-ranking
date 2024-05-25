@@ -18,7 +18,7 @@ const accessToken = (await axios.post('https://accounts.spotify.com/api/token', 
 })).data.access_token;
 
 // My Top Songsを取得する
-const config: AxiosRequestConfig = {
+const getSongsConfig: AxiosRequestConfig = {
   method: 'get',
   url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50',
   headers: { 
@@ -27,6 +27,33 @@ const config: AxiosRequestConfig = {
   }
 };
 
-const musicItems = await axios(config);
+const songItems = await axios(getSongsConfig);
+
+console.log(songItems);
 
 // プレイリストに曲を追加する（すでに登録されている場合はスキップされる？）
+const songData = {
+  // 追加する曲のURLリスト
+  uris: [
+    "string"
+  ],
+  position: 0
+};
+
+const config: AxiosRequestConfig = {
+  method: 'post',
+  url: 'https://api.spotify.com/v1/playlists/SgLzgRzpShKhGTFTRiH1Vw/tracks',
+  headers: { 
+    'Authorization': `Bearer ${accessToken}`,
+    'Content-Type': 'application/json'
+  },
+  data: songData
+};
+
+axios(config)
+  .then(response => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(error => {
+    console.error(error);
+  });
