@@ -61,6 +61,7 @@ Spotify Web APIには以下の二つのエンドポイントが存在してい�
 - [Spotify APIで自分のお気に入り曲を自動で取得・表示してみた](https://zenn.dev/noriyu/articles/484570e025c8f9)
 - [SpotifyWebAPIの認可フローをまとめてみた](https://kin29.info/spotifywebapi%E3%81%AE%E8%AA%8D%E5%8F%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%82%92%E3%81%BE%E3%81%A8%E3%82%81%E3%81%A6%E3%81%BF%E3%81%9F/)
 - [Get User's Top Items](https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks)
+- [Remove Playlist Items](https://developer.spotify.com/documentation/web-api/reference/remove-tracks-playlist)
 - [Create Playlist](https://developer.spotify.com/documentation/web-api/reference/create-playlist)
 - [Add Items to Playlist](https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist)
 - [Spotify APIで自分専用の再生数ランキングを作る](https://blog.yuu26.com/spotify-api/)
