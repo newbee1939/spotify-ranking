@@ -1,0 +1,36 @@
+name: Update Spotify Playlist
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 週一回実行　
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Bunを使う
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ./.tool-versions
+          cache: npm
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Update Stocks Ranking
+        env:
+          ACCESS_TOKEN_1: ${{ secrets.ACCESS_TOKEN_1 }}
+        run: npm run ts stocksRanking.ts
+
+      - name: Update Likes Ranking
+        env:
+          ACCESS_TOKEN_3: ${{ secrets.ACCESS_TOKEN_3 }}
+        run: npm run ts likesRanking.ts
