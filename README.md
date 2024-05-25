@@ -34,6 +34,7 @@ Access Tokenは期限が1時間であり、APIにアクセスするために必�
 `curl -H "Content-Type: application/x-www-form-urlencoded" -X POST "https://accounts.spotify.com/api/token?grant_type=authorization_code&code=hogefguga1234&redirect_uri=http://localhost&client_id=CLIENT_ID&client_secret=CLIENT_SECRET"`
 
 Refresh TokenからAccess Tokenを取得する。
+※初回にRefresh Tokenを取得して以降はここの手順からで問題ない
 
 `curl -H "Content-Type: application/x-www-form-urlencoded" -X POST "https://accounts.spotify.com/api/token?grant_type=refresh_token&refresh_token=REFRESH_TOKEN&client_id=CLIENT_ID&client_secret=CLIENT_SECRET"`
 
