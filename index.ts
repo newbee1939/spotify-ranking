@@ -27,7 +27,7 @@ const getSongsConfig: AxiosRequestConfig = {
   }
 };
 
-const songItems = await axios(getSongsConfig);
+const songItems = (await axios(getSongsConfig)).data.items;
 
 console.log(songItems);
 
@@ -50,10 +50,10 @@ const config: AxiosRequestConfig = {
   data: songData
 };
 
-axios(config)
-  .then(response => {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(error => {
-    console.error(error);
-  });
+// axios(config)
+//   .then(response => {
+//     console.log(JSON.stringify(response.data));
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
