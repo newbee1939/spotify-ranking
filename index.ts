@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 
 // アクセストークンの取得
 const REFRESH_TOKEN = Bun.env.REFRESH_TOKEN;
@@ -18,11 +18,15 @@ const accessToken = (await axios.post('https://accounts.spotify.com/api/token', 
 })).data.access_token;
 
 // My Top Songsを取得する
-// 以下もaxiosを用いたリクエストに変換して
+const config: AxiosRequestConfig = {
+  method: 'get',
+  url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50',
+  headers: { 
+    'Authorization': `Bearer ${accessToken}`, 
+    'Accept-Language': 'ja'
+  }
+};
 
-// curl --request GET \
-//   --url 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50' \
-//   -H 'Authorization: Bearer ACCESS_TOKEN' \
-//   -H 'Accept-Language: ja'
+const musicItems = await axios(config);
 
 // プレイリストに曲を追加する（すでに登録されている場合はスキップされる？）
