@@ -17,8 +17,12 @@ const accessToken = (await axios.post('https://accounts.spotify.com/api/token', 
   }
 })).data.access_token;
 
-// プレイリスト内の曲を全て削除
-
 // My Top Songsを取得する
+// 以下もaxiosを用いたリクエストに変換して
 
-// プレイリストに曲を追加する
+// curl --request GET \
+//   --url 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50' \
+//   -H 'Authorization: Bearer ACCESS_TOKEN' \
+//   -H 'Accept-Language: ja'
+
+// プレイリストに曲を追加する（すでに登録されている場合はスキップされる？）
