@@ -42,7 +42,7 @@ Access Tokenを使って必要なデータを取得できる。
 
 ```shell
 curl --request GET \
-  --url 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=1' \
+  --url 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50' \
   -H 'Authorization: Bearer ACCESS_TOKEN' \
   -H 'Accept-Language: ja'
 ```
